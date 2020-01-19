@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title>Home</title>
+    <meta charset='UTF-8'>
+    <meta name="viewport" content='width=device-width, initial-scale=1.0'>
+  
+    <!--Roboto Font-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    
+     <!-- A makeshit favicon I made -->
+     <link href="{{url_for('static', filename='favicon.ico')}}" rel="shortcut icon" type="image/x-icon" />
+
+    <!--Style Sheet-->
+    <link href="{{url_for('static', filename='style.css')}}" rel="stylesheet" />
+  </head>
+  
+  <body>
+    <h1>Transfer Money</h1>
+    <form action='/submitForm' method="POST">
+      User Name:&nbsp;&nbsp;<input type='text'/ name='username'><br>
+      Password:&nbsp;&nbsp;<input type='password' name='password'/><br>
+      Amount to Transfer $:&nbsp;&nbsp;<input type='number' name='amount'/><br>
+      <input type='submit' value='Transfer'>
+    </form>
+    <br>
+    <hr>
+    <div id='confirmation'>
+      <h1>Transfer Status</h1>
+      {% if resMsg %}
+        <h3>{{resMsg}}</h3>
+      {% endif %}
+  </div>
+  </body>
+</html>
